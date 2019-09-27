@@ -1,0 +1,11 @@
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\bin\Debug\netcoreapp2.2\AméliorationDeCode.deps.json
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\bin\Debug\netcoreapp2.2\AméliorationDeCode.runtimeconfig.json
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\bin\Debug\netcoreapp2.2\AméliorationDeCode.runtimeconfig.dev.json
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\bin\Debug\netcoreapp2.2\AméliorationDeCode.dll
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\bin\Debug\netcoreapp2.2\AméliorationDeCode.pdb
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.csprojAssemblyReference.cache
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.csproj.CoreCompileInputs.cache
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.AssemblyInfoInputs.cache
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.AssemblyInfo.cs
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.dll
+C:\Users\Cedric\Desktop\LearningRessourceGithub\AméliorationDeCode\AméliorationDeCode\obj\Debug\netcoreapp2.2\AméliorationDeCode.pdb

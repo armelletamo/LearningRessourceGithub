@@ -1,11 +1,13 @@
 ﻿using LearningRessource.ViewModels;
-using LearningRessource.Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LearningRessource.Services.Interface;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 
 namespace LearningRessource.Controllers
 {
@@ -13,6 +15,7 @@ namespace LearningRessource.Controllers
     {
 
         readonly ILearningRessourceService _ILearningRessourceService;
+
         public LearningController(ILearningRessourceService learningRessourceService)
         {
             this._ILearningRessourceService = learningRessourceService;
@@ -39,6 +42,7 @@ namespace LearningRessource.Controllers
         {
             return View();
         }
+
         // POST: Learnig/Create
         [HttpPost]
         public ActionResult Create(CourseVM course)
@@ -47,19 +51,25 @@ namespace LearningRessource.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return View("Index");
+                    return View("Create");
                 }
                 _ILearningRessourceService.AddRessource(course);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                return View("Index");
+                return View("Create");
             }
         }
 
 
-
+        // POST: Learnig/Create
+        [HttpPost]
+        public ActionResult ExportToExcel(IEnumerable<CourseVM> course)
+        {
+            _ILearningRessourceService.ImportToExcel<CourseVM>(course.ToList());
+            return View("Index", course);
+        }
 
 
     }

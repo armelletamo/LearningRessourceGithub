@@ -5,43 +5,50 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th></th>
-    </tr>
+@using (Html.BeginForm("ExportToExcel", "Learning", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>*@
-    </tr>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input name="course[@i].Title" value="@Model.ElementAt(i).Title" style="border:none" />
+                </td>
+                <td>
+                    <input name="course[@i].Description" value="@Model.ElementAt(i).Description" style="border:none" />
+                </td>
+                <td>
+                    <input name="course[@i].StartDate" value="@Model.ElementAt(i).StartDate.ToString("dd/MM/yyyy")" style="border:none" />
+                </td>
+                <td>
+                    <input name="course[@i].EndDate" value="@Model.ElementAt(i).EndDate.ToString("dd/MM/yyyy")" style="border:none" />
+                </td>
+
+            </tr>
+
+        }
+        <tr>
+            <td colspan="4">
+                <br />
+                <br />
+                <input type="submit" value="Export to Excel" class="button" />
+            </td>
+        </tr>
+    </table>
 }
-
-</table>
