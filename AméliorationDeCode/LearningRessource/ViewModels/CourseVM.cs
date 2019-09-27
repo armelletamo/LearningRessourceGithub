@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace LearningRessource.Models
+namespace LearningRessource.ViewModels
 {
-    public class Courses:IValidatableObject
+    public class CourseVM:IValidatableObject
     {
         [Required]
-        public string Tittle { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         [DisplayName("Start date")]
         [DataType(DataType.Date)]
@@ -22,13 +22,13 @@ namespace LearningRessource.Models
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             List<ValidationResult> results = new List<ValidationResult>();
-            if (StartDate <= DateTime.Now)
+            if (StartDate < DateTime.Now.Date)
             {
-                results.Add(new ValidationResult("Start date  must be greater than current time", new[] { "StartDate" }));
+                results.Add(new ValidationResult("Start date  must be greater than or equal to current time", new[] { "StartDate"}));
             }
-            if (EndDate <= StartDate)
+            if (EndDate <= StartDate.Date)
             {
-                results.Add(new ValidationResult("End Date must be greater that Start Date", new[] { "EndDate" }));
+                results.Add(new ValidationResult("End Date must be greater that Start Date", new[] { "EndDate"}));
             }
             return results;
         }

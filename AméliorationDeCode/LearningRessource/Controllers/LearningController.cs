@@ -1,31 +1,47 @@
-﻿using LearningRessource.Models;
+﻿using LearningRessource.ViewModels;
 using LearningRessource.Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LearningRessource.Services.Interface;
 
 namespace LearningRessource.Controllers
 {
     public class LearningController : Controller
     {
 
-        readonly ILearningRepository _learningRepository;
-        public LearningController(ILearningRepository learningRepository)
+        readonly ILearningRessourceService _ILearningRessourceService;
+        public LearningController(ILearningRessourceService learningRessourceService)
         {
-            this._learningRepository = learningRepository;
+            this._ILearningRessourceService = learningRessourceService;
         }
 
         // GET: Learnig
+        [HttpGet]
         public ActionResult Index()
+        {
+            List<CourseVM> Courses = new List<CourseVM>();
+            try
+            {
+                Courses = _ILearningRessourceService.GetRessources();
+                return View(Courses);
+            }
+            catch (Exception ex)
+            {
+                return View("Create");
+            }
+        }
+
+        // GET: Default/Create
+        public ActionResult Create()
         {
             return View();
         }
-
         // POST: Learnig/Create
         [HttpPost]
-        public ActionResult Create(Courses course)
+        public ActionResult Create(CourseVM course)
         {
             try
             {
@@ -33,58 +49,18 @@ namespace LearningRessource.Controllers
                 {
                     return View("Index");
                 }
-               
-                _learningRepository.Add(course);
+                _ILearningRessourceService.AddRessource(course);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
                 return View("Index");
             }
         }
 
-        // GET: Learnig/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: Learnig/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: Learnig/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: Learnig/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

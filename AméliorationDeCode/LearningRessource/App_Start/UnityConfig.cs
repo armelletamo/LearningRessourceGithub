@@ -19,7 +19,7 @@ namespace LearningRessource
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ILearningRepository, LearningRepository>();
-           // container.RegisterType<ILearningRessourceService, LearningRessourceService>();
+           container.RegisterType<ILearningRessourceService, LearningRessourceService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

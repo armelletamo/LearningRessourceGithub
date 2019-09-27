@@ -1,4 +1,5 @@
-﻿using LearningRessource.Models;
+﻿using LearningRessource.Repository.Models;
+using LearningRessource.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace LearningRessource.Services.Interface
 {
     public interface ILearningRessourceService
     {
-        void AddRessource(Courses course);
+        void AddRessource(CourseVM course);
+        List<CourseVM> GetRessources();
     }
 }

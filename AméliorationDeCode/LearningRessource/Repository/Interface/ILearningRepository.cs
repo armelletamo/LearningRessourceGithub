@@ -1,4 +1,4 @@
-﻿using LearningRessource.Models;
+﻿using LearningRessource.Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,7 @@ namespace LearningRessource.Repository.Interface
 {
    public  interface ILearningRepository
     {
-        void Add(Courses myCourse);
+        void Add(Course myCourse);
+        List<Course> GetCourses();
     }
 }
