@@ -12,6 +12,5 @@ namespace LearningRessource.Services.Interface
     {
         void AddRessource(CourseVM course);
         List<CourseVM> GetRessources();
-        void ImportToExcel<T>(IList<T> liste);
     }
 }

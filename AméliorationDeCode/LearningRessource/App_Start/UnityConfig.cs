@@ -19,7 +19,8 @@ namespace LearningRessource
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ILearningRepository, LearningRepository>();
-           container.RegisterType<ILearningRessourceService, LearningRessourceService>();
+            container.RegisterType<ILearningRessourceService, LearningRessourceService>();
+            container.RegisterType<IExportToExcelService, ExportToExcelService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

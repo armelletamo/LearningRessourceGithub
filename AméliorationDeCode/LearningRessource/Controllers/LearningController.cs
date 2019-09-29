@@ -15,10 +15,12 @@ namespace LearningRessource.Controllers
     {
 
         readonly ILearningRessourceService _ILearningRessourceService;
+            readonly IExportToExcelService _IExportToExcelService;
 
-        public LearningController(ILearningRessourceService learningRessourceService)
+        public LearningController(ILearningRessourceService learningRessourceService, IExportToExcelService exportToExcelService)
         {
             this._ILearningRessourceService = learningRessourceService;
+            this._IExportToExcelService = exportToExcelService;
         }
 
         // GET: Learnig
@@ -67,7 +69,7 @@ namespace LearningRessource.Controllers
         [HttpPost]
         public ActionResult ExportToExcel(IEnumerable<CourseVM> course)
         {
-            _ILearningRessourceService.ImportToExcel<CourseVM>(course.ToList());
+            _IExportToExcelService.GenerateExcelFile(_IExportToExcelService.ConvertToDataTable<CourseVM>(course.ToList()));
             return View("Index", course);
         }
 
